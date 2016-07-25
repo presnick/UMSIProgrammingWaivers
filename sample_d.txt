@@ -1,0 +1,102 @@
+{
+  "photo": {
+    "people": {
+      "haspeople": 0
+    }, 
+    "dateuploaded": "1467709435", 
+    "owner": {
+      "username": "Ansel Adams",
+      "realname": "", 
+      "nsid": "48093195@N03", 
+      "iconserver": "7332", 
+      "location": "", 
+      "path_alias": null, 
+      "iconfarm": 8
+    }, 
+    "publiceditability": {
+      "canaddmeta": 1, 
+      "cancomment": 1
+    }, 
+    "id": "27820301400", 
+    "title": {
+      "_content": "Photo1"
+    }, 
+    "media": "photo", 
+    "tags": {
+      "tag": [
+        {
+          "machine_tag": false, 
+          "_content": "Nature",
+          "author": "48093195@N03", 
+          "raw": "Nature",
+          "authorname": "ac | photo albums", 
+          "id": "48070141-27820301400-5470"
+        }, 
+        {
+          "machine_tag": false, 
+          "_content": "Mist",
+          "author": "48093195@N03", 
+          "raw": "Mist",
+          "authorname": "ac | photo albums", 
+          "id": "48070141-27820301400-852"
+        }, 
+        {
+          "machine_tag": false, 
+          "_content": "Mountain",
+          "author": "48093195@N03", 
+          "raw": "Mountain",
+          "authorname": "ac | photo albums", 
+          "id": "48070141-27820301400-1695"
+        }
+      ]
+    }, 
+    "comments": {
+      "_content": "0"
+    }, 
+    "secret": "c86034becf", 
+    "usage": {
+      "canblog": 0, 
+      "canshare": 1, 
+      "candownload": 0, 
+      "canprint": 0
+    }, 
+    "description": {
+      "_content": ""
+    }, 
+    "isfavorite": 0, 
+    "views": "4", 
+    "farm": 8, 
+    "visibility": {
+      "isfriend": 0, 
+      "isfamily": 0, 
+      "ispublic": 1
+    }, 
+    "rotation": 0, 
+    "dates": {
+      "taken": "2016-07-05 11:03:52", 
+      "takenunknown": "1", 
+      "takengranularity": 0, 
+      "lastupdate": "1467709679", 
+      "posted": "1467709435"
+    }, 
+    "license": "0", 
+    "notes": {
+      "note": []
+    }, 
+    "server": "7499", 
+    "safety_level": "0", 
+    "urls": {
+      "url": [
+        {
+          "type": "photopage", 
+          "_content": "https://www.flickr.com/photos/48093195@N03/27820301400/"
+        }
+      ]
+    }, 
+    "editability": {
+      "canaddmeta": 0, 
+      "cancomment": 0
+    }
+  }, 
+  "stat": "ok"
+}
