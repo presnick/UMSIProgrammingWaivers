@@ -26,7 +26,7 @@
       "tag": [
         {
           "machine_tag": false, 
-          "_content": "Nature",
+          "_content": "nature",
           "author": "48093195@N03", 
           "raw": "Nature",
           "authorname": "ac | photo albums", 
@@ -34,7 +34,7 @@
         }, 
         {
           "machine_tag": false, 
-          "_content": "Mist",
+          "_content": "mist",
           "author": "48093195@N03", 
           "raw": "Mist",
           "authorname": "ac | photo albums", 
@@ -42,7 +42,7 @@
         }, 
         {
           "machine_tag": false, 
-          "_content": "Mountain",
+          "_content": "mountain",
           "author": "48093195@N03", 
           "raw": "Mountain",
           "authorname": "ac | photo albums", 

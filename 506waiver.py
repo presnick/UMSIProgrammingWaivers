@@ -50,6 +50,7 @@ class Photo():
 # Now suppose that we revise the Photo class. Instead of passing into the constructor three separate values, the revised constructor will take a dictionary of data and extract those three values. The structure of the dictionary will be determined by the way the flickr API returns data.
 
 # We have provided a sample dictionary in the format that Flickr returns it. Let's read it in from a file. Feel free to add some print statements to understand the structure of sample_d. You may also find it useful to open the file "sample_d.txt" in a text editor, or copy and paste its contents into http://www.jsoneditoronline.org/
+# Note that there are two fields with plausible data to extract, 'raw' and '_content'; the only difference is capitalization. Please extract the 'raw' field.
 
 f = open("sample_d.txt", "r")
 sample_d = json.loads(f.read())
@@ -90,8 +91,12 @@ except:
     raise Exception("Make sure you have cached_results.txt in the same directory as this code file.")
     # saved_cache = {}
 
+def canonical_order(d):
+    alphabetized_keys = sorted(d.keys())
+    return [(k, d[k]) for k in alphabetized_keys]
+
 def requestURL(baseurl, params = {}):
-    req = requests.Request(method = 'GET', url = baseurl, params = params)
+    req = requests.Request(method = 'GET', url = baseurl, params = canonical_order(params))
     prepped = req.prepare()
     return prepped.url
 
@@ -152,7 +157,7 @@ def get_with_caching(base_url, params_diction, cache_diction, cache_fname, omitt
 
 # [PROBLEM 8] Sort the tags
 
-# Sort all the tags in descending order based on how often they were used in the 50 photos. Save the sorted list in a variable called sorted_tags.
+# Sort all the tags in descending order based on how often they were used in the 50 photos. Save the sorted list in a variable called sorted_tags. Break ties alphabetically, so that if "alpha" and "bravo" both have a count of 5, "alpha" will appear first in the sort order.
 
 # REF: See the chapter titled, "Sorting"
 
@@ -168,6 +173,8 @@ def get_with_caching(base_url, params_diction, cache_diction, cache_fname, omitt
 # REF: Slicing is in one of the early chapters, titled, "Sequences"
 
 print "Below this line, the 5 most frequently used tags should print out:"
+
+
 
 print "-----------------done; output of diagnostic tests is below this line------------"
 ##### Code for running diagnostic tests are below this line. Don't change any code below this line######
@@ -211,7 +218,7 @@ class Problem5(unittest.TestCase):
         self.assertEqual(len(photo_ids_list), 50, "Check id count")
 
     def test_02(self):
-        self.assertEqual(photo_ids_list[0], "27733361503", "Check first id")
+        self.assertEqual(photo_ids_list[0], "28981863122", "Check first id")
 
 class Problem6(unittest.TestCase):
 
@@ -219,19 +226,21 @@ class Problem6(unittest.TestCase):
         self.assertEqual(len(photo_instances), 50, "Check count")
 
     def test_02(self):
-        self.assertEqual(photo_instances[0].tags, ['Sunset', 'Bavaria'], "Check tags of first instance")
+        self.assertEqual(photo_instances[0].tags, [u'canon', u'eos', u'linphotography', u'beach', u'nature', u'sunset'], "Check tags of first instance")
 
 class Problem7(unittest.TestCase):
 
     def test_01(self):
-        self.assertEqual(counts_diction['water'], 3, "water count")
-        self.assertEqual(counts_diction['snow'], 1, "Outdoors count")
+        self.assertEqual(counts_diction['water'], 4, "water count")
+        self.assertEqual(counts_diction['coastal'], 1, "coastal count")
 
 class Problem8(unittest.TestCase):
 
     def test_01(self):
-        self.assertEqual(sorted_tags[:10], [u'sunset', u'Lake Geneva', u'Andrew Wilson Switzerland', u'Lausanne', u'Switzerland', u'Sunset', u'Clouds', u'landscape', u'Sun', u'sUNSET'], "Check sorted tags")
-
+        self.assertEqual(sorted_tags[:3], [u'sunset', u'A7', u'Zeiss'], "Check first three tags in sorted_tags")
+    def test_02(self):
+        self.assertEqual(sorted_tags[4:6], [u'Sunset', u'beach'], "Check sorted_tags[4:6]")
 
 unittest.main(verbosity=2)
+
 
